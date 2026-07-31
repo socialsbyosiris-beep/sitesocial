@@ -1,0 +1,76 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  blurb?: string;
+}
+
+const { eyebrow, title, blurb } = Astro.props;
+---
+
+<header class="intro">
+  <div class="eyebrow">
+    <span class="rule"></span>
+    {eyebrow}
+    <span class="rule"></span>
+  </div>
+  <h1>{title}</h1>
+  {blurb && <p class="blurb">{blurb}</p>}
+</header>
+
+<style>
+  .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tint);
+  }
+
+  .rule {
+    width: 26px;
+    height: 2px;
+    background: #a8c0ce;
+    border-radius: 2px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1.1;
+  }
+
+  .blurb {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.55;
+    font-weight: 600;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 720px) {
+    h1 {
+      font-size: 34px;
+    }
+
+    .blurb {
+      font-size: 16px;
+    }
+  }
+</style>

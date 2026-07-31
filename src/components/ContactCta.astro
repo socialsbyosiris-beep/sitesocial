@@ -1,11 +1,21 @@
 ---
 import { site } from '../data/site';
+
+interface Props {
+  heading?: string;
+  blurb?: string;
+}
+
+const {
+  heading = 'Not sure which fits?',
+  blurb = "Tell me about your business and I'll point you to the right package.",
+} = Astro.props;
 ---
 
 <section class="cta">
   <div class="copy">
-    <h2>Not sure which fits?</h2>
-    <p>Tell me about your business and I'll point you to the right package.</p>
+    <h2>{heading}</h2>
+    <p>{blurb}</p>
   </div>
   <a class="email-btn" href={`mailto:${site.email}`}>Email Me</a>
 </section>

@@ -10,6 +10,37 @@ export const site = {
   instagramHref: 'https://instagram.com/socialsbyosiris',
 };
 
+export type NavLink = {
+  label: string;
+  href: string;
+};
+
+export const nav: NavLink[] = [
+  { label: 'Home', href: '/' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Pricing', href: '/pricing' },
+];
+
+export type Service = {
+  title: string;
+  blurb: string;
+};
+
+export const services: Service[] = [
+  {
+    title: 'Strategy',
+    blurb: 'Content pillars, posting cadence, and growth goals tailored to your brand.',
+  },
+  {
+    title: 'Shooting & Editing',
+    blurb: 'Monthly on-location shoots, edited into scroll-stopping Reels and TikToks.',
+  },
+  {
+    title: 'Daily Management',
+    blurb: 'Captions, comments, DMs, and a content calendar so you never have to touch the app.',
+  },
+];
+
 export type Package = {
   eyebrow: string;
   name: string;

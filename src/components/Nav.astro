@@ -1,0 +1,88 @@
+---
+import { site, nav } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="/">{site.name}</a>
+    <nav class="links">
+      {
+        nav.map((item) => {
+          const itemPath = item.href.replace(/\/$/, '') || '/';
+          const isActive = itemPath === path;
+          return (
+            <a href={item.href} class:list={['link', { active: isActive }]}>
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>
+
+<style>
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(248, 241, 235, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--sand-line);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 24px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--blue);
+  }
+
+  .brand:hover {
+    color: var(--blue-dark);
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .link {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--muted);
+  }
+
+  .link:hover {
+    color: var(--blue);
+  }
+
+  .link.active {
+    color: var(--blue);
+    border-bottom: 2px solid var(--peach);
+    padding-bottom: 4px;
+  }
+
+  @media (max-width: 480px) {
+    .bar {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .links {
+      gap: 18px;
+    }
+  }
+</style>

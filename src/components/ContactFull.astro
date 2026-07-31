@@ -1,0 +1,149 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="contact">
+  <div class="copy">
+    <span class="eyebrow">Get In Touch</span>
+    <h2>Let's talk about your socials.</h2>
+    <p>
+      Tell me about your business and what you're hoping to grow — I'll follow up with a package
+      recommendation, usually within a day.
+    </p>
+    <a class="email-btn" href={`mailto:${site.email}`}>Email Me</a>
+  </div>
+
+  <div class="details">
+    <a class="detail" href={`mailto:${site.email}`}>
+      <span class="label">Email</span>
+      <span class="value">{site.email}</span>
+    </a>
+    <a class="detail" href={site.phoneHref}>
+      <span class="label">Phone</span>
+      <span class="value">{site.phone}</span>
+    </a>
+    <a class="detail" href={site.instagramHref}>
+      <span class="label">Instagram</span>
+      <span class="value">{site.instagram}</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    background: var(--card);
+    border: 2px solid var(--sand-line);
+    border-radius: 26px;
+    padding: 48px 44px;
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tint);
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1.15;
+  }
+
+  .copy p {
+    margin: 0;
+    font-size: 16.5px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 440px;
+  }
+
+  .email-btn {
+    margin-top: 6px;
+    padding: 15px 30px;
+    border: 2px solid var(--blue);
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--blue);
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .email-btn:hover {
+    background: var(--blue);
+    color: var(--cream);
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    border-left: 2px dashed var(--dash);
+    padding-left: 40px;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-lighter);
+  }
+
+  .value {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .detail:hover .value {
+    color: var(--blue);
+  }
+
+  @media (max-width: 760px) {
+    .contact {
+      grid-template-columns: 1fr;
+      padding: 36px 28px;
+    }
+
+    .copy {
+      align-items: center;
+      text-align: center;
+    }
+
+    .copy p {
+      max-width: none;
+    }
+
+    .details {
+      border-left: none;
+      border-top: 2px dashed var(--dash);
+      padding-left: 0;
+      padding-top: 28px;
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>

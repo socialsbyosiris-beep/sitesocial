@@ -1,36 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
-import PageHeader from '../components/PageHeader.astro';
-import PricingCard from '../components/PricingCard.astro';
-import AddOnCard from '../components/AddOnCard.astro';
-import ContactCta from '../components/ContactCta.astro';
-import { packages, addOns, terms } from '../data/site';
+import Hero from '../components/Hero.astro';
+import ServiceTile from '../components/ServiceTile.astro';
+import ContactFull from '../components/ContactFull.astro';
+import { services } from '../data/site';
 ---
 
 <Base>
   <main>
-    <PageHeader />
-
-    <div class="wrap tiers-block">
-      <p class="swipe-hint">Swipe to compare plans →</p>
-      <section class="tiers">
-        {packages.map((pkg) => <PricingCard pkg={pkg} />)}
-      </section>
+    <div class="hero-block">
+      <Hero />
+      <div class="hero-links">
+        <a class="hero-link primary" href="/pricing">See Pricing</a>
+        <a class="hero-link" href="/portfolio">View Portfolio</a>
+      </div>
     </div>
 
-    <section class="wrap addons">
-      <div class="addons-head">
-        <h2>Add-Ons</h2>
-        <span>Available with any package · email included in Content Machine</span>
-      </div>
-      <div class="addons-grid">
-        {addOns.map((addOn) => <AddOnCard addOn={addOn} />)}
-      </div>
-      <p class="terms">{terms}</p>
+    <section class="wrap services">
+      {services.map((service) => <ServiceTile service={service} />)}
     </section>
 
     <div class="wrap">
-      <ContactCta />
+      <ContactFull />
     </div>
   </main>
 </Base>
@@ -44,97 +35,50 @@ import { packages, addOns, terms } from '../data/site';
     padding: 64px 24px 96px;
   }
 
-  .tiers-block {
+  .hero-block {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    align-items: center;
+    gap: 30px;
   }
 
-  .swipe-hint {
-    display: none;
-    margin: 0;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--muted-lighter);
-  }
-
-  .tiers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 26px;
-    align-items: stretch;
-  }
-
-  @media (max-width: 760px) {
-    .swipe-hint {
-      display: block;
-    }
-
-
-    .tiers {
-      display: flex;
-      align-items: stretch;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-padding-inline: 24px;
-      -webkit-overflow-scrolling: touch;
-      gap: 16px;
-      margin: 0 -24px;
-      padding: 4px 24px 12px;
-    }
-
-    .tiers :global(.card) {
-      flex: 0 0 82%;
-      min-width: 0;
-      scroll-snap-align: center;
-    }
-  }
-
-  .addons {
+  .hero-links {
     display: flex;
-    flex-direction: column;
-    gap: 26px;
-  }
-
-  .addons-head {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .addons-head h2 {
-    font-family: var(--display);
-    font-size: 34px;
-    font-weight: 700;
+  .hero-link {
+    padding: 15px 28px;
+    border: 2px solid var(--blue);
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 800;
     color: var(--blue);
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
   }
 
-  .addons-head span {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--muted-lighter);
+  .hero-link:hover {
+    background: var(--blue);
+    color: var(--cream);
   }
 
-  .addons-grid {
+  .hero-link.primary {
+    background: var(--blue);
+    color: var(--cream);
+  }
+
+  .hero-link.primary:hover {
+    background: var(--blue-dark);
+    border-color: var(--blue-dark);
+  }
+
+  .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 20px;
-  }
-
-  @media (max-width: 600px) {
-    .addons-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-  }
-
-  .terms {
-    margin: 0;
-    font-size: 14.5px;
-    line-height: 1.65;
-    color: #8b9fac;
-    max-width: 900px;
-    text-wrap: pretty;
   }
 </style>

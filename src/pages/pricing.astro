@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PricingCard from '../components/PricingCard.astro';
+import AddOnCard from '../components/AddOnCard.astro';
+import ContactCta from '../components/ContactCta.astro';
+import { packages, addOns, terms, site } from '../data/site';
+---
+
+<Base title={`Pricing — ${site.name}`} description="Packages and add-ons for full-service social media management.">
+  <main>
+    <PageIntro
+      eyebrow="Pricing"
+      title="Packages built to fit your stage"
+      blurb="Pick the level of hands-on support you need — every package includes strategy, content, and posting."
+    />
+
+    <div class="wrap tiers-block">
+      <p class="swipe-hint">Swipe to compare plans →</p>
+      <section class="tiers">
+        {packages.map((pkg) => <PricingCard pkg={pkg} />)}
+      </section>
+    </div>
+
+    <section class="wrap addons">
+      <div class="addons-head">
+        <h2>Add-Ons</h2>
+        <span>Available with any package · email included in Content Machine</span>
+      </div>
+      <div class="addons-grid">
+        {addOns.map((addOn) => <AddOnCard addOn={addOn} />)}
+      </div>
+      <p class="terms">{terms}</p>
+    </section>
+
+    <div class="wrap">
+      <ContactCta />
+    </div>
+  </main>
+</Base>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 72px;
+    padding: 64px 24px 96px;
+  }
+
+  .tiers-block {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .swipe-hint {
+    display: none;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted-lighter);
+  }
+
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+    align-items: stretch;
+  }
+
+  @media (max-width: 760px) {
+    .swipe-hint {
+      display: block;
+    }
+
+    .tiers {
+      display: flex;
+      align-items: stretch;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 24px;
+      -webkit-overflow-scrolling: touch;
+      gap: 16px;
+      margin: 0 -24px;
+      padding: 4px 24px 12px;
+    }
+
+    .tiers :global(.card) {
+      flex: 0 0 82%;
+      min-width: 0;
+      scroll-snap-align: center;
+    }
+  }
+
+  .addons {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .addons-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .addons-head h2 {
+    font-family: var(--display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .addons-head span {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--muted-lighter);
+  }
+
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .addons-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+  }
+
+  .terms {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #8b9fac;
+    max-width: 900px;
+    text-wrap: pretty;
+  }
+</style>

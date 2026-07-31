@@ -1,0 +1,40 @@
+---
+import type { Service } from '../data/site';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<div class="tile">
+  <h3>{service.title}</h3>
+  <p>{service.blurb}</p>
+</div>
+
+<style>
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--card);
+    border: 2px solid var(--sand-line);
+    border-radius: 20px;
+    padding: 28px 26px;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+</style>

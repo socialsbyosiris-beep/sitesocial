@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import ContactCta from '../components/ContactCta.astro';
+import { portfolioItems } from '../data/portfolio';
+import { site } from '../data/site';
+---
+
+<Base title={`Portfolio — ${site.name}`} description="Recent content, shoots, and campaigns.">
+  <main>
+    <PageIntro
+      eyebrow="Portfolio"
+      title="A few recent projects"
+      blurb="Placeholder projects for now — real shoots, captions, and results are on the way."
+    />
+
+    <section class="wrap grid">
+      {portfolioItems.map((item) => <PortfolioCard item={item} />)}
+    </section>
+
+    <div class="wrap">
+      <ContactCta
+        heading="Like what you see?"
+        blurb="Let's talk about creating content like this for your brand."
+      />
+    </div>
+  </main>
+</Base>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 72px;
+    padding: 64px 24px 96px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+</style>
