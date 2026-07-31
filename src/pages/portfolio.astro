@@ -8,7 +8,7 @@ import { site } from '../data/site';
 
 <Base title={`Portfolio — ${site.name}`} description="Recent content, shoots, and campaigns.">
   <main>
-    <div class="wrap mesh">
+    <div class="wrap mesh gradient-mesh">
       <div class="intro-col">
         <span class="eyebrow">Portfolio</span>
         <h1>Work that feels like you, not a template</h1>
@@ -46,29 +46,11 @@ import { site } from '../data/site';
   }
 
   .mesh {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    border-radius: 40px;
     padding: 56px 48px;
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
     gap: 48px;
     align-items: center;
-  }
-
-  .mesh::before {
-    content: '';
-    position: absolute;
-    inset: -25%;
-    z-index: -1;
-    background:
-      radial-gradient(circle at 12% 18%, rgba(70, 115, 144, 0.4), transparent 42%),
-      radial-gradient(circle at 88% 12%, rgba(232, 185, 140, 0.45), transparent 42%),
-      radial-gradient(circle at 18% 88%, rgba(156, 175, 136, 0.4), transparent 42%),
-      radial-gradient(circle at 85% 82%, rgba(217, 138, 134, 0.35), transparent 42%),
-      var(--cream);
-    filter: blur(50px);
   }
 
   .intro-col {

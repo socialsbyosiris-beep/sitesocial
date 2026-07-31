@@ -69,6 +69,27 @@ ul {
   margin: 0 auto;
 }
 
+.gradient-mesh {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.gradient-mesh::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(70, 115, 144, 0.4), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(232, 185, 140, 0.45), transparent 42%),
+    radial-gradient(circle at 18% 88%, rgba(156, 175, 136, 0.4), transparent 42%),
+    radial-gradient(circle at 85% 82%, rgba(217, 138, 134, 0.35), transparent 42%),
+    var(--cream);
+  filter: blur(50px);
+}
+
 .outline-title {
   font-family: var(--display);
   font-weight: 800;
