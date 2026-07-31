@@ -18,6 +18,10 @@
   --peach: #e8b98c;
   --peach-ink: #4a3524;
   --peach-muted: #6e5238;
+  --sage: #9caf88;
+  --sage-dark: #7e9468;
+  --rose: #d98a86;
+  --rose-dark: #c06c68;
   --display: 'Baloo 2', system-ui, cursive;
   --body: 'Nunito', system-ui, -apple-system, sans-serif;
 }

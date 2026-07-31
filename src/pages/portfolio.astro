@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import PageIntro from '../components/PageIntro.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
 import ContactCta from '../components/ContactCta.astro';
 import { portfolioItems } from '../data/portfolio';
@@ -9,15 +8,24 @@ import { site } from '../data/site';
 
 <Base title={`Portfolio — ${site.name}`} description="Recent content, shoots, and campaigns.">
   <main>
-    <PageIntro
-      eyebrow="Portfolio"
-      title="A few recent projects"
-      blurb="Placeholder projects for now — real shoots, captions, and results are on the way."
-    />
-
-    <section class="wrap grid">
-      {portfolioItems.map((item) => <PortfolioCard item={item} />)}
-    </section>
+    <div class="wrap mesh">
+      <div class="intro-col">
+        <span class="eyebrow">Portfolio</span>
+        <h1>Work that feels like you, not a template</h1>
+        <p>
+          Real shoots, captions, and results are on their way — here's a peek at the kind of
+          work in progress.
+        </p>
+        <a class="cta" href="/pricing">See Pricing</a>
+      </div>
+      <div class="grid-col">
+        {
+          portfolioItems.map((item, i) => (
+            <PortfolioCard item={item} shape={i === 0 ? 'circle' : 'square'} />
+          ))
+        }
+      </div>
+    </div>
 
     <div class="wrap">
       <ContactCta
@@ -37,9 +45,114 @@ import { site } from '../data/site';
     padding: 64px 24px 96px;
   }
 
-  .grid {
+  .mesh {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 40px;
+    padding: 56px 48px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .mesh::before {
+    content: '';
+    position: absolute;
+    inset: -25%;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(70, 115, 144, 0.4), transparent 42%),
+      radial-gradient(circle at 88% 12%, rgba(232, 185, 140, 0.45), transparent 42%),
+      radial-gradient(circle at 18% 88%, rgba(156, 175, 136, 0.4), transparent 42%),
+      radial-gradient(circle at 85% 82%, rgba(217, 138, 134, 0.35), transparent 42%),
+      var(--cream);
+    filter: blur(50px);
+  }
+
+  .intro-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tint);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--blue-dark);
+  }
+
+  .intro-col p {
+    margin: 0;
+    font-size: 16.5px;
+    line-height: 1.55;
+    font-weight: 600;
+    color: var(--ink-soft);
+    max-width: 380px;
+  }
+
+  .cta {
+    margin-top: 8px;
+    padding: 14px 28px;
+    border: 2px solid var(--blue);
+    border-radius: 999px;
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--blue);
+    background: var(--card);
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .cta:hover {
+    background: var(--blue);
+    color: var(--cream);
+  }
+
+  .grid-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px 22px;
+  }
+
+  @media (max-width: 900px) {
+    .mesh {
+      grid-template-columns: 1fr;
+      padding: 44px 28px;
+      gap: 36px;
+    }
+
+    .intro-col {
+      align-items: center;
+      text-align: center;
+    }
+
+    .intro-col p {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 520px) {
+    h1 {
+      font-size: 30px;
+    }
+
+    .grid-col {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 16px;
+    }
   }
 </style>
