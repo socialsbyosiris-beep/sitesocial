@@ -122,6 +122,13 @@ import { packages, addOns, terms } from '../data/site';
     gap: 20px;
   }
 
+  @media (max-width: 600px) {
+    .addons-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+  }
+
   .terms {
     margin: 0;
     font-size: 14.5px;
