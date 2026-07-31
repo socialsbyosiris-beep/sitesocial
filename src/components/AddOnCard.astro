@@ -1,0 +1,76 @@
+---
+import type { AddOn } from '../data/site';
+
+interface Props {
+  addOn: AddOn;
+}
+
+const { addOn } = Astro.props;
+---
+
+<div class:list={['tile', { featured: addOn.featured }]}>
+  <h3>{addOn.name}</h3>
+  <p>{addOn.blurb}</p>
+  <span class="price">
+    {addOn.price}{addOn.unit && <span class="unit">{addOn.unit}</span>}
+  </span>
+</div>
+
+<style>
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--sand);
+    border-radius: 20px;
+    padding: 26px 24px;
+  }
+
+  .tile.featured {
+    background: var(--peach);
+  }
+
+  h3 {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .featured h3 {
+    color: var(--peach-ink);
+  }
+
+  p {
+    margin: 0;
+    flex: 1;
+    font-size: 14.5px;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+
+  .featured p {
+    color: var(--peach-muted);
+  }
+
+  .price {
+    font-family: var(--display);
+    font-size: 27px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .featured .price {
+    color: var(--peach-ink);
+  }
+
+  .unit {
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--muted-light);
+  }
+
+  .featured .unit {
+    color: #7c5f44;
+  }
+</style>

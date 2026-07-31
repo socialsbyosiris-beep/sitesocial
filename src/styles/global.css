@@ -1,0 +1,76 @@
+:root {
+  --cream: #f8f1eb;
+  --card: #fffdfb;
+  --sand: #f2e7dd;
+  --sand-line: #dcc9ba;
+  --dash: #e6d6c8;
+  --blue: #467390;
+  --blue-dark: #2f5670;
+  --ink: #2f4a5c;
+  --ink-soft: #3d5a6d;
+  --muted: #6c8496;
+  --muted-light: #8faaba;
+  --muted-lighter: #97aebc;
+  --tint: #7fa3b8;
+  --on-blue: #f1f6f9;
+  --on-blue-soft: #cfe1eb;
+  --on-blue-dim: #b7d0de;
+  --peach: #e8b98c;
+  --peach-ink: #4a3524;
+  --peach-muted: #6e5238;
+  --display: 'Baloo 2', system-ui, cursive;
+  --body: 'Nunito', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--blue-dark);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.outline-title {
+  font-family: var(--display);
+  font-weight: 800;
+  color: var(--cream);
+  -webkit-text-stroke: 3px var(--blue);
+  paint-order: stroke fill;
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+}

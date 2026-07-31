@@ -1,0 +1,68 @@
+---
+import { site } from '../data/site';
+---
+
+<header class="header">
+  <div class="eyebrow">
+    <span class="rule"></span>
+    {site.role}
+    <span class="rule"></span>
+  </div>
+  <h1 class="outline-title">{site.name}</h1>
+  <p class="tagline">{site.tagline}</p>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tint);
+  }
+
+  .rule {
+    width: 26px;
+    height: 2px;
+    background: #a8c0ce;
+    border-radius: 2px;
+  }
+
+  h1 {
+    font-size: 78px;
+  }
+
+  .tagline {
+    margin: 6px 0 0;
+    font-size: 21px;
+    line-height: 1.55;
+    font-weight: 600;
+    color: #4e6e82;
+    max-width: 620px;
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 720px) {
+    h1 {
+      font-size: 46px;
+      -webkit-text-stroke-width: 2px;
+    }
+
+    .tagline {
+      font-size: 18px;
+    }
+  }
+</style>

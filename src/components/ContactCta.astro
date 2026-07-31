@@ -1,0 +1,57 @@
+---
+import { site } from '../data/site';
+---
+
+<section class="cta">
+  <div class="copy">
+    <h2>Not sure which fits?</h2>
+    <p>Tell me about your business and I'll point you to the right package.</p>
+  </div>
+  <div class="links">
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+    <a href={site.phoneHref}>{site.phone}</a>
+    <a href={site.instagramHref}>{site.instagram}</a>
+  </div>
+</section>
+
+<style>
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
+    border: 2px solid var(--sand-line);
+    border-radius: 26px;
+    padding: 46px 40px;
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+</style>

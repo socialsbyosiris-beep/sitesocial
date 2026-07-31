@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PricingCard from '../components/PricingCard.astro';
+import AddOnCard from '../components/AddOnCard.astro';
+import ContactCta from '../components/ContactCta.astro';
+import { packages, addOns, terms } from '../data/site';
+---
+
+<Base>
+  <main>
+    <PageHeader />
+
+    <section class="wrap tiers">
+      {packages.map((pkg) => <PricingCard pkg={pkg} />)}
+    </section>
+
+    <section class="wrap addons">
+      <div class="addons-head">
+        <h2>Add-Ons</h2>
+        <span>Available with any package · email included in Content Machine</span>
+      </div>
+      <div class="addons-grid">
+        {addOns.map((addOn) => <AddOnCard addOn={addOn} />)}
+      </div>
+      <p class="terms">{terms}</p>
+    </section>
+
+    <div class="wrap">
+      <ContactCta />
+    </div>
+  </main>
+</Base>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 72px;
+    padding: 64px 24px 96px;
+  }
+
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+    align-items: stretch;
+  }
+
+  .addons {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .addons-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .addons-head h2 {
+    font-family: var(--display);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .addons-head span {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--muted-lighter);
+  }
+
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+  }
+
+  .terms {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #8b9fac;
+    max-width: 900px;
+    text-wrap: pretty;
+  }
+</style>
