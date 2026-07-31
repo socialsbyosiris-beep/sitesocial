@@ -2,7 +2,7 @@ export const site = {
   name: 'Socials by Osiris',
   role: 'Social Media Manager',
   tagline:
-    'Full-service social media — strategy, shooting, editing, and daily management — all in one.',
+    'Full-service social media marketing — strategy, shooting, editing, and daily management — all in one.',
   email: 'socialsbyosiris@gmail.com',
   phone: '714 · 341 · 8284',
   phoneHref: 'tel:7143418284',
