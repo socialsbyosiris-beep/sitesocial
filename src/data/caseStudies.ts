@@ -84,11 +84,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: {
-      bullets: [
-        'Add the reach or impressions growth over the campaign period.',
-        'Add the engagement rate increase.',
-        'Add the follower growth number.',
-      ],
+      bullets: [],
       headline: '+561% more accounts reached',
       stats: [
         { label: 'Accounts Reached', value: '3,920', delta: '+561%' },
