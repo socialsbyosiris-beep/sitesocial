@@ -53,11 +53,18 @@ export const caseStudies: CaseStudy[] = [
       'Increase local reach and engagement',
       'Build stronger connections with the Yorba Linda community',
     ],
-    skills: ['Content Strategy', 'Caption Copywriting', 'Photo & Video Editing', 'Community Management'],
+    skills: [
+      'Content Strategy',
+      'Photography + Video',
+      'Copywriting',
+      'Content Planning',
+      'Community Engagement',
+      'Email + SMS',
+    ],
     tools: [
-      { name: 'Canva', blurb: 'Templates for consistent, on-brand visuals' },
-      { name: 'Later', blurb: 'Scheduling and content calendar management' },
-      { name: 'Meta Business Suite', blurb: 'Publishing and performance tracking' },
+      { name: 'Canva & Adobe', blurb: 'Content design, photo, and video editing' },
+      { name: 'Metricool', blurb: 'Scheduling and analytics' },
+      { name: 'Meta Business Suite', blurb: 'Performance tracking and ads' },
     ],
     tasks: [
       {
