@@ -149,11 +149,14 @@ const { study } = Astro.props;
 
   .goals .eyebrow {
     font-family: var(--display);
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 800;
     letter-spacing: 0.01em;
     text-transform: none;
-    color: var(--blue);
+    color: var(--cream);
+    -webkit-text-stroke: 2.5px var(--blue);
+    paint-order: stroke fill;
+    line-height: 1.1;
   }
 
   .eyebrow {
@@ -485,7 +488,8 @@ const { study } = Astro.props;
     }
 
     .tasks h3,
-    .results h3 {
+    .results h3,
+    .goals .eyebrow {
       font-size: 30px;
       -webkit-text-stroke-width: 2px;
     }

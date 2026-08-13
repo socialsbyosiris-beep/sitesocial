@@ -48,10 +48,10 @@ export const caseStudies: CaseStudy[] = [
       'Add a note on the starting point — follower count, posting frequency, or brand consistency before this project.',
     ],
     goals: [
-      'Increase Instagram engagement',
-      'Grow follower count with the right audience',
-      'Establish a consistent visual brand',
-      'Build a repeatable content calendar',
+      'Create a more consistent social presence',
+      'Showcase the full YLS menu + seasonal launches',
+      'Increase local reach and engagement',
+      'Build stronger connections with the Yorba Linda community',
     ],
     skills: ['Content Strategy', 'Caption Copywriting', 'Photo & Video Editing', 'Community Management'],
     tools: [
