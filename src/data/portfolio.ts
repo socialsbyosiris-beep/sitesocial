@@ -3,7 +3,7 @@ export type PortfolioItem = {
   category: string;
   description: string;
   tone: 'blue' | 'peach' | 'sand' | 'sage' | 'rose';
-  icon: 'camera' | 'play' | 'calendar' | 'chat' | 'mail' | 'star' | 'heart' | 'chart';
+  icon: 'camera' | 'play' | 'calendar' | 'chat' | 'mail' | 'star' | 'heart' | 'chart' | 'megaphone';
 };
 
 // Placeholder projects — swap title, category, and description for real work,
@@ -46,17 +46,17 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     title: 'Project Name',
-    category: 'Influencer Collab',
+    category: 'Influencer Outreach',
     description: 'Explain the collaboration, reach, and outcome for this partnership.',
     tone: 'blue',
     icon: 'star',
   },
   {
     title: 'Project Name',
-    category: 'UGC Campaign',
-    description: 'Describe the giveaway, user-generated content push, or engagement campaign here.',
+    category: 'Paid Ads',
+    description: 'Summarize the ad campaign, targeting, and results for this client.',
     tone: 'peach',
-    icon: 'heart',
+    icon: 'megaphone',
   },
   {
     title: 'Project Name',
