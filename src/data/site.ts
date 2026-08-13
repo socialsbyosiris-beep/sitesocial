@@ -154,6 +154,3 @@ export const addOns: AddOn[] = [
     unit: '/mo',
   },
 ];
-
-export const onboardingNote =
-  'All packages begin with a one-time onboarding of $500 — brand voice, goals, account setup, first content calendar, and shoot planning.';

@@ -4,15 +4,15 @@ import PageIntro from '../components/PageIntro.astro';
 import PricingCard from '../components/PricingCard.astro';
 import AddOnCard from '../components/AddOnCard.astro';
 import ContactCta from '../components/ContactCta.astro';
-import { packages, addOns, onboardingNote, site } from '../data/site';
+import { packages, addOns, site } from '../data/site';
 ---
 
 <Base title={`Pricing — ${site.name}`} description="Packages and add-ons for full-service social media management.">
   <main>
     <PageIntro
       eyebrow="Pricing"
-      title="Packages built to fit your stage"
-      blurb="Pick the level of hands-on support you need — every package includes strategy, content, and posting."
+      title="Social media help, but make it fit your business"
+      blurb="Whether you need a little support or want me to take social off your plate, there's a package for that."
     />
 
     <div class="wrap tiers-block">
@@ -30,13 +30,12 @@ import { packages, addOns, onboardingNote, site } from '../data/site';
       <div class="addons-grid">
         {addOns.map((addOn) => <AddOnCard addOn={addOn} />)}
       </div>
-      <p class="terms">{onboardingNote}</p>
     </section>
 
     <div class="wrap">
       <ContactCta
-        heading="Not seeing what fits?"
-        blurb="Contact me and we can discuss options tailored to your business."
+        heading="Your business doesn't fit in a box — and that's okay."
+        blurb="Let's chat about what you need and create a plan that works for you."
       />
     </div>
   </main>
@@ -133,12 +132,4 @@ import { packages, addOns, onboardingNote, site } from '../data/site';
     }
   }
 
-  .terms {
-    margin: 0;
-    font-size: 14.5px;
-    line-height: 1.65;
-    color: #8b9fac;
-    max-width: 900px;
-    text-wrap: pretty;
-  }
 </style>

@@ -73,47 +73,40 @@ const secondaryFeatures = pkg.features.slice(midpoint);
   }
 
   .price-block {
-    flex: 0 0 240px;
+    flex: 0 0 260px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 30px;
     padding: 24px;
-  }
-
-  .price-block.peach,
-  .row.peach .price-block {
-    background: linear-gradient(150deg, var(--peach), #e0a870);
-  }
-
-  .row.blue .price-block {
-    background: linear-gradient(150deg, var(--blue), var(--blue-dark));
-  }
-
-  .row.ink .price-block {
-    background: linear-gradient(150deg, var(--blue-dark), #1f3c4d);
   }
 
   .figure {
     font-family: var(--display);
-    font-size: 52px;
+    font-size: 56px;
     font-weight: 800;
     line-height: 1;
+    color: var(--cream);
+    -webkit-text-stroke-width: 3px;
+    paint-order: stroke fill;
+    white-space: nowrap;
   }
 
   .row.peach .figure {
-    color: var(--peach-ink);
+    -webkit-text-stroke-color: var(--peach);
   }
 
-  .row.blue .figure,
+  .row.blue .figure {
+    -webkit-text-stroke-color: var(--blue);
+  }
+
   .row.ink .figure {
-    color: var(--cream);
+    -webkit-text-stroke-color: var(--blue-dark);
   }
 
   .unit {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 800;
     margin-top: 4px;
   }
 
@@ -121,9 +114,12 @@ const secondaryFeatures = pkg.features.slice(midpoint);
     color: var(--peach-muted);
   }
 
-  .row.blue .unit,
+  .row.blue .unit {
+    color: var(--blue);
+  }
+
   .row.ink .unit {
-    color: var(--on-blue-dim);
+    color: var(--blue-dark);
   }
 
   .detail {
@@ -266,6 +262,11 @@ const secondaryFeatures = pkg.features.slice(midpoint);
       justify-content: center;
       gap: 8px;
       padding: 22px;
+    }
+
+    .figure {
+      font-size: 42px;
+      -webkit-text-stroke-width: 2px;
     }
 
     .columns {
