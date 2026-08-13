@@ -27,8 +27,8 @@ import { portfolioItems } from '../data/portfolio';
     <section id="portfolio" class="wrap portfolio">
       <div class="portfolio-head">
         <span class="eyebrow">Portfolio</span>
-        <h2>Work that feels like you, not a template</h2>
-        <p>Real shoots, captions, and results are on their way — here's a peek at the kind of work in progress.</p>
+        <h2>From idea → camera roll → your feed</h2>
+        <p>Real shoots, scroll-stopping content, and creative ideas brought to life.</p>
       </div>
 
       <div class="case-studies">
@@ -137,9 +137,12 @@ import { portfolioItems } from '../data/portfolio';
 
   .portfolio-head h2 {
     font-family: var(--display);
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--blue-dark);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--cream);
+    -webkit-text-stroke: 2.5px var(--blue-dark);
+    paint-order: stroke fill;
+    letter-spacing: 0.01em;
     line-height: 1.15;
   }
 
@@ -170,6 +173,11 @@ import { portfolioItems } from '../data/portfolio';
   }
 
   @media (max-width: 720px) {
+    .portfolio-head h2 {
+      font-size: 30px;
+      -webkit-text-stroke-width: 2px;
+    }
+
     .grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 20px 16px;

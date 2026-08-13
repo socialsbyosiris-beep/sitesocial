@@ -123,8 +123,8 @@ const { study } = Astro.props;
 
   .top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 32px;
     align-items: center;
   }
 
@@ -142,7 +142,12 @@ const { study } = Astro.props;
   .goals {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
+    padding-left: 28px;
+  }
+
+  .goals .eyebrow {
+    font-size: 13px;
   }
 
   .eyebrow {
@@ -156,14 +161,15 @@ const { study } = Astro.props;
   .goals ul {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
 
   .goals li {
-    font-size: 14.5px;
+    font-size: 17px;
+    line-height: 1.4;
     font-weight: 700;
     color: var(--ink-soft);
-    padding-left: 18px;
+    padding-left: 22px;
     position: relative;
   }
 
@@ -269,9 +275,13 @@ const { study } = Astro.props;
 
   .tasks h3 {
     font-family: var(--display);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--blue);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--cream);
+    -webkit-text-stroke: 2.5px var(--blue);
+    paint-order: stroke fill;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
   }
 
   .task {
@@ -351,9 +361,13 @@ const { study } = Astro.props;
 
   .results h3 {
     font-family: var(--display);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--blue);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--cream);
+    -webkit-text-stroke: 2.5px var(--blue);
+    paint-order: stroke fill;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
   }
 
   .results-block {
@@ -455,8 +469,18 @@ const { study } = Astro.props;
       grid-template-columns: 1fr;
     }
 
+    .goals {
+      padding-left: 0;
+    }
+
     .case {
       padding: 26px 22px;
+    }
+
+    .tasks h3,
+    .results h3 {
+      font-size: 30px;
+      -webkit-text-stroke-width: 2px;
     }
   }
 </style>
