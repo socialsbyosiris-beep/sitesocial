@@ -83,25 +83,22 @@ const secondaryFeatures = pkg.features.slice(midpoint);
 
   .figure {
     font-family: var(--display);
-    font-size: 56px;
+    font-size: 68px;
     font-weight: 800;
     line-height: 1;
-    color: var(--cream);
-    -webkit-text-stroke-width: 3px;
-    paint-order: stroke fill;
     white-space: nowrap;
   }
 
   .row.peach .figure {
-    -webkit-text-stroke-color: var(--peach);
+    color: var(--peach-muted);
   }
 
   .row.blue .figure {
-    -webkit-text-stroke-color: var(--blue);
+    color: var(--blue);
   }
 
   .row.ink .figure {
-    -webkit-text-stroke-color: var(--blue-dark);
+    color: var(--blue-dark);
   }
 
   .unit {
@@ -236,6 +233,7 @@ const secondaryFeatures = pkg.features.slice(midpoint);
     padding: 14px 28px;
     border: 2px solid var(--blue);
     border-radius: 999px;
+    text-align: center;
     font-size: 15.5px;
     font-weight: 800;
     color: var(--blue);
@@ -265,8 +263,7 @@ const secondaryFeatures = pkg.features.slice(midpoint);
     }
 
     .figure {
-      font-size: 42px;
-      -webkit-text-stroke-width: 2px;
+      font-size: 50px;
     }
 
     .columns {
