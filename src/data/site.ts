@@ -131,26 +131,26 @@ export const addOns: AddOn[] = [
   {
     name: 'Email Newsletter',
     blurb: '2× per month, written + designed in your email platform',
-    price: '+$600',
+    price: '+$450',
     unit: '/mo',
   },
   {
     name: 'SMS Marketing',
     blurb: 'Campaign copy + scheduling',
-    price: '+$400',
+    price: '+$300',
     unit: '/mo',
   },
   {
     name: 'Email + SMS Bundle',
-    blurb: 'Both services, save $200',
-    price: '+$800',
+    blurb: 'Both services, save $150',
+    price: '+$600',
     unit: '/mo',
     featured: true,
   },
   {
     name: 'Influencer Marketing',
     blurb: 'Outreach, coordination, and in-person visits',
-    price: '+$900',
+    price: '+$750',
     unit: '/mo',
   },
 ];
