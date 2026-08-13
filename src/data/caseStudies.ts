@@ -69,24 +69,18 @@ export const caseStudies: CaseStudy[] = [
     tasks: [
       {
         number: '01',
-        title: 'Brand Research',
-        body: 'Add a summary of the discovery process for this client.',
-        columns: [
-          { label: 'Image', text: "Add the visual direction chosen for this brand — colors, tone, mood." },
-          { label: 'Target', text: 'Add who this brand speaks to — their audience and clientele.' },
-          { label: 'Values', text: "Add the brand's core values reflected in the content." },
-        ],
+        title: 'Content Creation',
+        body: 'Planned and captured photo + short-form video content highlighting everything from everyday menu favorites to seasonal launches and promotions.',
       },
       {
         number: '02',
-        title: 'Feed Concepts',
-        body: 'Add a description of the visual direction, feed layout, and color scheme designed for this brand.',
-        palette: ['#467390', '#e8b98c', '#9caf88', '#2f4a5c'],
+        title: 'Social Media Management',
+        body: 'Turned content into an ongoing social presence with reels, posts, captions, trends, and timely promotional content.',
       },
       {
         number: '03',
-        title: 'Content Planning',
-        body: 'Add a description of the posting cadence, content pillars, and how far in advance content was planned.',
+        title: 'Campaign + Content Planning',
+        body: 'Built content around seasonal launches, holidays, promotions, events, and evergreen menu items while leaving room for trends and last-minute updates.',
       },
     ],
     results: {
