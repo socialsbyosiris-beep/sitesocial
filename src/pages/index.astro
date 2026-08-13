@@ -2,8 +2,12 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ServiceTile from '../components/ServiceTile.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
 import ContactFull from '../components/ContactFull.astro';
 import { services } from '../data/site';
+import { caseStudies } from '../data/caseStudies';
+import { portfolioItems } from '../data/portfolio';
 ---
 
 <Base>
@@ -12,12 +16,35 @@ import { services } from '../data/site';
       <Hero />
       <div class="hero-links">
         <a class="hero-link primary" href="/pricing">See Pricing</a>
-        <a class="hero-link" href="/portfolio">View Portfolio</a>
+        <a class="hero-link" href="#portfolio">View Portfolio</a>
       </div>
     </div>
 
     <section class="wrap services">
       {services.map((service) => <ServiceTile service={service} />)}
+    </section>
+
+    <section id="portfolio" class="wrap portfolio">
+      <div class="portfolio-head">
+        <span class="eyebrow">Portfolio</span>
+        <h2>Work that feels like you, not a template</h2>
+        <p>Real shoots, captions, and results are on their way — here's a peek at the kind of work in progress.</p>
+      </div>
+
+      <div class="case-studies">
+        {caseStudies.map((study) => <CaseStudyCard study={study} />)}
+      </div>
+
+      <div class="more-work">
+        <span class="eyebrow">A Few More</span>
+        <div class="grid">
+          {
+            portfolioItems.map((item, i) => (
+              <PortfolioCard item={item} shape={i === 0 ? 'circle' : 'square'} />
+            ))
+          }
+        </div>
+      </div>
     </section>
 
     <div class="wrap">
@@ -81,5 +108,71 @@ import { services } from '../data/site';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 20px;
+  }
+
+  .portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    scroll-margin-top: 90px;
+  }
+
+  .portfolio-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tint);
+  }
+
+  .portfolio-head h2 {
+    font-family: var(--display);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    line-height: 1.15;
+  }
+
+  .portfolio-head p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .case-studies {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .more-work {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 720px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 16px;
+    }
   }
 </style>

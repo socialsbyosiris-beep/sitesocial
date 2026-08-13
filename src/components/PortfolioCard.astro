@@ -58,6 +58,20 @@ const { item, shape = 'square' } = Astro.props;
         </svg>
       )
     }
+    {
+      item.icon === 'heart' && (
+        <svg viewBox="0 0 24 24" fill="white" stroke="none">
+          <path d="M12 21s-7.5-4.6-10-9.1C0.5 8.7 2 5 5.5 5c2 0 3.3 1.1 4 2.2 0.7-1.1 2-2.2 4-2.2 3.5 0 5 3.7 3.5 6.9-2.5 4.5-10 9.1-10 9.1z" />
+        </svg>
+      )
+    }
+    {
+      item.icon === 'chart' && (
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 20V11M12 20V4M20 20v-6" />
+        </svg>
+      )
+    }
   </div>
   <figcaption>{item.category}</figcaption>
 </figure>

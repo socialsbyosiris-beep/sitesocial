@@ -3,7 +3,7 @@ export type PortfolioItem = {
   category: string;
   description: string;
   tone: 'blue' | 'peach' | 'sand' | 'sage' | 'rose';
-  icon: 'camera' | 'play' | 'calendar' | 'chat' | 'mail' | 'star';
+  icon: 'camera' | 'play' | 'calendar' | 'chat' | 'mail' | 'star' | 'heart' | 'chart';
 };
 
 // Placeholder projects — swap title, category, and description for real work,
@@ -50,5 +50,19 @@ export const portfolioItems: PortfolioItem[] = [
     description: 'Explain the collaboration, reach, and outcome for this partnership.',
     tone: 'blue',
     icon: 'star',
+  },
+  {
+    title: 'Project Name',
+    category: 'UGC Campaign',
+    description: 'Describe the giveaway, user-generated content push, or engagement campaign here.',
+    tone: 'peach',
+    icon: 'heart',
+  },
+  {
+    title: 'Project Name',
+    category: 'Analytics & Growth',
+    description: 'Summarize a growth milestone or performance report delivered for this client.',
+    tone: 'sand',
+    icon: 'chart',
   },
 ];

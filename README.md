@@ -1,6 +1,6 @@
 # Socials by Osiris — website
 
-Astro site for Socials by Osiris: home/contact, portfolio, and pricing pages.
+Astro site for Socials by Osiris: a home page (hero, services, portfolio, and contact) and a pricing page.
 
 ## Run it
 
@@ -18,18 +18,18 @@ npm run preview   # preview the production build
 
 ## Pages
 
-- `/` — home page, hero, services overview, and full contact section.
-- `/portfolio` — project grid. Currently placeholder cards.
-- `/pricing` — packages, add-ons, and terms.
+- `/` — home page: hero, services overview, portfolio section (`#portfolio`, scroll target from the nav), and full contact section.
+- `/pricing` — packages, add-ons, and onboarding note.
 
 ## Where things live
 
-- `src/data/site.ts` — site name, contact info, nav links, home page services, pricing packages/add-ons/terms. Edit copy and prices here; the page rebuilds itself. No markup to touch.
-- `src/data/portfolio.ts` — portfolio project entries (title, category, description). Swap in real projects and photos here as they're ready.
-- `src/pages/` — one file per route (`index.astro`, `portfolio.astro`, `pricing.astro`).
-- `src/components/` — `Nav`, `Footer`, `Hero` (home hero), `PageIntro` (interior page headers), `ServiceTile`, `ContactFull` (home contact section), `ContactCta` (compact CTA reused on Portfolio/Pricing), `PricingCard`, `AddOnCard`, `PortfolioCard`.
+- `src/data/site.ts` — site name, contact info, nav links, home page services, pricing packages/add-ons. Edit copy and prices here; the page rebuilds itself. No markup to touch.
+- `src/data/caseStudies.ts` — the 2 client case-study blocks on the home page (goals, skills, tools, tasks, results). Currently placeholder content — swap in real client details, photos, and stats as they're ready.
+- `src/data/portfolio.ts` — the smaller icon-tile grid ("A Few More") on the home page. Swap in real projects and photos here as they're ready.
+- `src/pages/` — one file per route (`index.astro`, `pricing.astro`).
+- `src/components/` — `Nav`, `Footer`, `Hero` (home hero), `PageIntro` (interior page headers), `ServiceTile`, `CaseStudyCard`, `PortfolioCard`, `ContactFull` (home contact section), `ContactCta` (compact CTA reused on Pricing), `PricingCard`, `AddOnCard`.
 - `src/layouts/Base.astro` — shared HTML shell, fonts, nav, and footer.
-- `src/styles/global.css` — brand colors and fonts as CSS variables (cream `#f8f1eb`, steel blue `#467390`, peach `#e8b98c`).
+- `src/styles/global.css` — brand colors and fonts as CSS variables (cream `#f8f1eb`, steel blue `#467390`, peach `#e8b98c`, plus sage and rose accents).
 
 ## Adding a page
 

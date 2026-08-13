@@ -1,0 +1,462 @@
+---
+import type { CaseStudy } from '../data/caseStudies';
+
+interface Props {
+  study: CaseStudy;
+}
+
+const { study } = Astro.props;
+---
+
+<article class="case">
+  <div class="top">
+    <div class="photo-grid">
+      {study.photoTones.map((tone) => <span class={`photo tone-${tone}`} />)}
+    </div>
+    <div class="goals">
+      <span class="eyebrow">The Goals</span>
+      <ul>
+        {study.goals.map((goal) => <li>{goal}</li>)}
+      </ul>
+    </div>
+  </div>
+
+  <a class="brand" href={study.instagramHref}>
+    <span class="brand-label">Brand:</span> {study.brand}
+    <span class="handle">{study.instagramHandle}</span>
+  </a>
+
+  {study.intro.map((paragraph) => <p class="intro">{paragraph}</p>)}
+
+  <div class="skills-tools">
+    <div class="skills">
+      <span class="eyebrow">Skills Acquired</span>
+      <div class="pills">
+        {study.skills.map((skill) => <span class="pill">{skill}</span>)}
+      </div>
+    </div>
+    <div class="tools">
+      <span class="eyebrow">Tools &amp; Platforms</span>
+      <div class="tool-list">
+        {
+          study.tools.map((tool) => (
+            <div class="tool">
+              <span class="tool-name">{tool.name}</span>
+              <span class="tool-blurb">{tool.blurb}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="tasks">
+    <h3>The Tasks</h3>
+    {
+      study.tasks.map((task) => (
+        <div class="task">
+          <div class="task-head">
+            <span class="task-number">{task.number}</span>
+            <h4>{task.title}</h4>
+          </div>
+          <p>{task.body}</p>
+          {task.columns && (
+            <div class="task-columns">
+              {task.columns.map((col) => (
+                <div class="task-col">
+                  <span class="col-label">{col.label}</span>
+                  <p>{col.text}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {task.palette && (
+            <div class="palette">
+              {task.palette.map((hex) => <span class="swatch" style={`background:${hex}`} />)}
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="results">
+    <h3>The Results</h3>
+    <div class="results-block">
+      <ul class="result-bullets">
+        {study.results.bullets.map((bullet) => <li>{bullet}</li>)}
+      </ul>
+      <div class="insights-card">
+        <div class="insights-head">
+          <span>Previous Month</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <p class="insights-headline">{study.results.headline}</p>
+        <div class="insights-stats">
+          {
+            study.results.stats.map((stat) => (
+              <div class="insight-stat">
+                <span class="insight-label">{stat.label}</span>
+                <span class="insight-value">
+                  {stat.value}
+                  <span class="insight-delta">{stat.delta}</span>
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .case {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    background: var(--card);
+    border: 2px solid var(--sand-line);
+    border-radius: 30px;
+    padding: 32px;
+  }
+
+  .top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .photo {
+    aspect-ratio: 1;
+    border-radius: 12px;
+  }
+
+  .goals {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tint);
+  }
+
+  .goals ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .goals li {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .goals li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--sage-dark);
+    font-weight: 800;
+  }
+
+  .brand {
+    align-self: flex-start;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .brand-label {
+    color: var(--tint);
+    text-transform: uppercase;
+  }
+
+  .handle {
+    margin-left: 6px;
+    color: var(--muted-lighter);
+    font-weight: 700;
+  }
+
+  .brand:hover {
+    color: var(--blue);
+  }
+
+  .intro {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 720px;
+  }
+
+  .skills-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    padding-top: 24px;
+    border-top: 2px dashed var(--dash);
+  }
+
+  .skills,
+  .tools {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--sand);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .tool-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tool {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .tool-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--blue);
+  }
+
+  .tool-blurb {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 2px dashed var(--dash);
+  }
+
+  .tasks h3 {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .task {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .task-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .task-number {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--peach-muted);
+  }
+
+  .task-head h4 {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .task p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 640px;
+  }
+
+  .task-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 6px;
+  }
+
+  .col-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tint);
+  }
+
+  .task-col p {
+    font-size: 13.5px;
+  }
+
+  .palette {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--sand-line);
+  }
+
+  .results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .results h3 {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .results-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: center;
+    background: var(--blue-dark);
+    border-radius: 24px;
+    padding: 30px;
+  }
+
+  .result-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .result-bullets li {
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--on-blue);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .result-bullets li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--peach);
+  }
+
+  .insights-card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .insights-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted-lighter);
+  }
+
+  .insights-headline {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--sage-dark);
+  }
+
+  .insights-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 2px dashed var(--dash);
+  }
+
+  .insight-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .insight-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  .insight-value {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .insight-delta {
+    margin-left: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--sage-dark);
+  }
+
+  @media (max-width: 800px) {
+    .top,
+    .skills-tools,
+    .task-columns,
+    .results-block {
+      grid-template-columns: 1fr;
+    }
+
+    .case {
+      padding: 26px 22px;
+    }
+  }
+</style>

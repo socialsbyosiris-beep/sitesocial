@@ -90,6 +90,26 @@ ul {
   filter: blur(50px);
 }
 
+.tone-blue {
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+}
+
+.tone-peach {
+  background: linear-gradient(135deg, var(--peach), #d99f6c);
+}
+
+.tone-sand {
+  background: linear-gradient(135deg, #ddc4ae, var(--sand-line));
+}
+
+.tone-sage {
+  background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+}
+
+.tone-rose {
+  background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+}
+
 .outline-title {
   font-family: var(--display);
   font-weight: 800;
