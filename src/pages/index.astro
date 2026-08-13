@@ -122,7 +122,7 @@ import { portfolioItems } from '../data/portfolio';
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    max-width: 620px;
+    max-width: 860px;
     margin: 0 auto;
     text-align: center;
   }
@@ -137,13 +137,14 @@ import { portfolioItems } from '../data/portfolio';
 
   .portfolio-head h2 {
     font-family: var(--display);
-    font-size: 40px;
+    font-size: 34px;
     font-weight: 800;
     color: var(--cream);
     -webkit-text-stroke: 2.5px var(--blue-dark);
     paint-order: stroke fill;
     letter-spacing: 0.01em;
     line-height: 1.15;
+    white-space: nowrap;
   }
 
   .portfolio-head p {
@@ -152,6 +153,7 @@ import { portfolioItems } from '../data/portfolio';
     line-height: 1.55;
     font-weight: 600;
     color: var(--muted);
+    max-width: 620px;
   }
 
   .case-studies {
@@ -172,12 +174,15 @@ import { portfolioItems } from '../data/portfolio';
     gap: 24px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 900px) {
     .portfolio-head h2 {
+      white-space: normal;
       font-size: 30px;
       -webkit-text-stroke-width: 2px;
     }
+  }
 
+  @media (max-width: 720px) {
     .grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 20px 16px;

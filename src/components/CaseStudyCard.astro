@@ -143,11 +143,17 @@ const { study } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding-left: 28px;
+    max-width: 340px;
+    margin-left: auto;
   }
 
   .goals .eyebrow {
-    font-size: 13px;
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--blue);
   }
 
   .eyebrow {
@@ -470,7 +476,8 @@ const { study } = Astro.props;
     }
 
     .goals {
-      padding-left: 0;
+      max-width: none;
+      margin-left: 0;
     }
 
     .case {
