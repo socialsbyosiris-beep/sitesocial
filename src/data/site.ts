@@ -60,7 +60,7 @@ export const packages: Package[] = [
     eyebrow: 'Starter',
     name: 'Essential',
     blurb: 'Perfect for businesses getting consistent on social.',
-    price: '$1,800',
+    price: '$1,200',
     meta: '1 content shoot · up to 3 hrs on location',
     tone: 'peach',
     features: [
@@ -80,7 +80,7 @@ export const packages: Package[] = [
     eyebrow: 'Growth',
     name: 'Full Presence',
     blurb: 'Daily content across all platforms with one shoot per month.',
-    price: '$3,200',
+    price: '$2,600',
     meta: '1 content shoot · up to 4 hrs on location',
     tone: 'blue',
     features: [
@@ -101,7 +101,7 @@ export const packages: Package[] = [
     eyebrow: 'Premium',
     name: 'Content Machine',
     blurb: 'Maximum output with two shoots per month.',
-    price: '$5,000',
+    price: '$4,400',
     meta: '2 content shoots · up to 4 hrs each',
     tone: 'ink',
     features: [
