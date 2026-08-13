@@ -40,12 +40,12 @@ export type CaseStudy = {
 // skills, tasks, and results for real client work once ready.
 export const caseStudies: CaseStudy[] = [
   {
-    brand: 'Client Name',
-    instagramHandle: '@clienthandle',
-    instagramHref: '#',
+    brand: 'YLS Bakery & Cafe · Yorba Linda',
+    instagramHandle: '@ylsbakerycafe',
+    instagramHref: 'https://instagram.com/ylsbakerycafe',
     intro: [
-      "Add a short paragraph here about how this client came to work with Osiris and what they needed help with.",
-      'Add a note on the starting point — follower count, posting frequency, or brand consistency before this project.',
+      'YLS Bakery & Cafe is a local Yorba Linda favorite serving up donuts, coffee, breakfast, lunch, and plenty of seasonal treats. I came on to help bring more consistency and personality to their social media while keeping the content fun, approachable, and connected to the local community.',
+      "The goal wasn't to completely reinvent YLS online it was to build on an already loved local brand with more consistent content, stronger storytelling, and a better way to showcase everything they offer beyond the donut case.",
     ],
     goals: [
       'Create a more consistent social presence',
