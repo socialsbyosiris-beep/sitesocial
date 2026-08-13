@@ -15,8 +15,11 @@ import { packages, addOns, onboardingNote, site } from '../data/site';
       blurb="Pick the level of hands-on support you need — every package includes strategy, content, and posting."
     />
 
-    <div class="wrap tiers">
-      {packages.map((pkg, i) => <PricingCard pkg={pkg} reversed={i % 2 === 1} />)}
+    <div class="wrap tiers-block">
+      <p class="swipe-hint">Swipe to compare plans →</p>
+      <div class="tiers">
+        {packages.map((pkg, i) => <PricingCard pkg={pkg} reversed={i % 2 === 1} />)}
+      </div>
     </div>
 
     <section class="wrap addons">
@@ -48,10 +51,47 @@ import { packages, addOns, onboardingNote, site } from '../data/site';
     padding: 64px 24px 96px;
   }
 
+  .tiers-block {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .swipe-hint {
+    display: none;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted-lighter);
+  }
+
   .tiers {
     display: flex;
     flex-direction: column;
     gap: 28px;
+  }
+
+  @media (max-width: 800px) {
+    .swipe-hint {
+      display: block;
+    }
+
+    .tiers {
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 24px;
+      -webkit-overflow-scrolling: touch;
+      gap: 16px;
+      margin: 0 -24px;
+      padding: 4px 24px 12px;
+    }
+
+    .tiers :global(.row) {
+      flex: 0 0 88%;
+      min-width: 0;
+      scroll-snap-align: center;
+    }
   }
 
   .addons {
