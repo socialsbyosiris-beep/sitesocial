@@ -50,60 +50,62 @@ const { study } = Astro.props;
     </div>
   </div>
 
-  <div class="tasks">
-    <h3>What I Did</h3>
-    {
-      study.tasks.map((task) => (
-        <div class="task">
-          <div class="task-head">
-            <span class="task-number">{task.number}</span>
-            <h4>{task.title}</h4>
-          </div>
-          <p>{task.body}</p>
-          {task.columns && (
-            <div class="task-columns">
-              {task.columns.map((col) => (
-                <div class="task-col">
-                  <span class="col-label">{col.label}</span>
-                  <p>{col.text}</p>
-                </div>
-              ))}
+  <div class="tasks-results">
+    <div class="tasks">
+      <h3>What I Did</h3>
+      {
+        study.tasks.map((task) => (
+          <div class="task">
+            <div class="task-head">
+              <span class="task-number">{task.number}</span>
+              <h4>{task.title}</h4>
             </div>
-          )}
-          {task.palette && (
-            <div class="palette">
-              {task.palette.map((hex) => <span class="swatch" style={`background:${hex}`} />)}
-            </div>
-          )}
-        </div>
-      ))
-    }
-  </div>
-
-  <div class="results">
-    <h3>The Results</h3>
-    <div class="results-block">
-      <ul class="result-bullets">
-        {study.results.bullets.map((bullet) => <li>{bullet}</li>)}
-      </ul>
-      <div class="insights-card">
-        <div class="insights-head">
-          <span>Previous Month</span>
-          <span class="chevron">⌄</span>
-        </div>
-        <p class="insights-headline">{study.results.headline}</p>
-        <div class="insights-stats">
-          {
-            study.results.stats.map((stat) => (
-              <div class="insight-stat">
-                <span class="insight-label">{stat.label}</span>
-                <span class="insight-value">
-                  {stat.value}
-                  <span class="insight-delta">{stat.delta}</span>
-                </span>
+            <p>{task.body}</p>
+            {task.columns && (
+              <div class="task-columns">
+                {task.columns.map((col) => (
+                  <div class="task-col">
+                    <span class="col-label">{col.label}</span>
+                    <p>{col.text}</p>
+                  </div>
+                ))}
               </div>
-            ))
-          }
+            )}
+            {task.palette && (
+              <div class="palette">
+                {task.palette.map((hex) => <span class="swatch" style={`background:${hex}`} />)}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="results">
+      <h3>The Results</h3>
+      <div class="results-block">
+        <ul class="result-bullets">
+          {study.results.bullets.map((bullet) => <li>{bullet}</li>)}
+        </ul>
+        <div class="insights-card">
+          <div class="insights-head">
+            <span>Previous Month</span>
+            <span class="chevron">⌄</span>
+          </div>
+          <p class="insights-headline">{study.results.headline}</p>
+          <div class="insights-stats">
+            {
+              study.results.stats.map((stat) => (
+                <div class="insight-stat">
+                  <span class="insight-label">{stat.label}</span>
+                  <span class="insight-value">
+                    {stat.value}
+                    <span class="insight-delta">{stat.delta}</span>
+                  </span>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
@@ -274,12 +276,19 @@ const { study } = Astro.props;
     color: var(--muted);
   }
 
+  .tasks-results {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 32px;
+    align-items: start;
+    padding-top: 24px;
+    border-top: 2px dashed var(--dash);
+  }
+
   .tasks {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-top: 24px;
-    border-top: 2px dashed var(--dash);
   }
 
   .tasks h3 {
@@ -380,13 +389,12 @@ const { study } = Astro.props;
   }
 
   .results-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
     background: var(--blue-dark);
     border-radius: 24px;
-    padding: 30px;
+    padding: 28px;
   }
 
   .result-bullets {
@@ -474,7 +482,7 @@ const { study } = Astro.props;
     .top,
     .skills-tools,
     .task-columns,
-    .results-block {
+    .tasks-results {
       grid-template-columns: 1fr;
     }
 
