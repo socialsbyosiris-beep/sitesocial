@@ -47,6 +47,7 @@ export type Package = {
   blurb: string;
   price: string;
   meta: string;
+  tone: 'peach' | 'blue' | 'ink';
   features: string[];
   note?: string;
   cta: string;
@@ -61,6 +62,7 @@ export const packages: Package[] = [
     blurb: 'Perfect for businesses getting consistent on social.',
     price: '$1,800',
     meta: '1 content shoot · up to 3 hrs on location',
+    tone: 'peach',
     features: [
       '2 platforms (IG + FB or TikTok)',
       '3–4 posts per week',
@@ -80,6 +82,7 @@ export const packages: Package[] = [
     blurb: 'Daily content across all platforms with one shoot per month.',
     price: '$3,200',
     meta: '1 content shoot · up to 4 hrs on location',
+    tone: 'blue',
     features: [
       '3 platforms (IG, FB, TikTok)',
       'Daily posting',
@@ -100,6 +103,7 @@ export const packages: Package[] = [
     blurb: 'Maximum output with two shoots per month.',
     price: '$5,000',
     meta: '2 content shoots · up to 4 hrs each',
+    tone: 'ink',
     features: [
       '3 platforms (IG, FB, TikTok)',
       'Daily posting',
@@ -151,5 +155,5 @@ export const addOns: AddOn[] = [
   },
 ];
 
-export const terms =
-  'All packages begin with a one-time onboarding of $500 — brand voice, goals, account setup, first content calendar, and shoot planning. Packages are billed monthly, no long-term contract, cancel any time with 30 days written notice.';
+export const onboardingNote =
+  'All packages begin with a one-time onboarding of $500 — brand voice, goals, account setup, first content calendar, and shoot planning.';
