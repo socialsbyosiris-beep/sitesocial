@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import ServiceTile from '../components/ServiceTile.astro';
+import AboutSection from '../components/AboutSection.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
 import ContactFull from '../components/ContactFull.astro';
@@ -22,6 +23,8 @@ import { portfolioItems } from '../data/portfolio';
     <section class="wrap services">
       {services.map((service) => <ServiceTile service={service} />)}
     </section>
+
+    <AboutSection />
 
     <section id="portfolio" class="wrap portfolio">
       <div class="portfolio-head">
