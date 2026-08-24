@@ -20,12 +20,12 @@ export const portfolioItems: PortfolioItem[] = [
   {
     category: 'Content Calendar',
     image: '/portfolio/beyond-content-calendar.jpg',
-    alt: 'Monthly content calendar spreadsheet for YLS Bakery & Cafe',
+    alt: 'Content calendar planning table for YLS Bakery & Cafe',
   },
   {
     category: 'Community Management',
     image: '/portfolio/beyond-community.jpg',
-    alt: 'Instagram comment replies on a YLS Bakery & Cafe post',
+    alt: 'Instagram comments and replies on a YLS Bakery & Cafe post',
   },
   {
     category: 'Email Campaign',
@@ -35,7 +35,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     category: 'Influencer Outreach',
     image: '/portfolio/beyond-collabs.jpg',
-    alt: 'Influencer collaboration post featuring YLS Bakery & Cafe',
+    alt: 'Grid of YLS Bakery & Cafe Reels including a collab feature with HI5DEN',
   },
   {
     category: 'Paid Social and Ads',
