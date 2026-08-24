@@ -38,7 +38,7 @@ export const portfolioItems: PortfolioItem[] = [
     alt: 'Influencer collaboration post featuring YLS Bakery & Cafe',
   },
   {
-    category: 'Paid Ads',
+    category: 'Paid Social and Ads',
     image: '/portfolio/beyond-ads.jpg',
     alt: 'Yelp Ads performance dashboard for YLS Bakery & Cafe',
   },
