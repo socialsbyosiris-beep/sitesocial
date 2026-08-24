@@ -37,7 +37,8 @@ export const services: Service[] = [
   },
   {
     title: 'Daily Management',
-    blurb: 'Captions, comments, DMs, and a content calendar so you never have to touch the app.',
+    blurb:
+      'Captions, community engagement, scheduling, and content management to keep your brand active and consistent.',
   },
 ];
 

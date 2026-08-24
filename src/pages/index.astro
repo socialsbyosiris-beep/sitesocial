@@ -13,10 +13,12 @@ import { portfolioItems } from '../data/portfolio';
 <Base>
   <main>
     <div class="wrap hero-block gradient-mesh">
+      <div class="hero-top">
+        <a class="work-link" href="#portfolio">View My Work</a>
+      </div>
       <Hero />
       <div class="hero-links">
-        <a class="hero-link primary" href="/pricing">See Pricing</a>
-        <a class="hero-link" href="#portfolio">View Portfolio</a>
+        <a class="pricing-link" href="/pricing">See Pricing</a>
       </div>
     </div>
 
@@ -70,19 +72,19 @@ import { portfolioItems } from '../data/portfolio';
     padding: 64px 40px;
   }
 
-  .hero-links {
+  .hero-top {
+    width: 100%;
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
-  .hero-link {
-    padding: 15px 28px;
+  .work-link {
+    padding: 10px 20px;
     border: 2px solid var(--blue);
     border-radius: 999px;
+    background: var(--card);
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     color: var(--blue);
     transition:
@@ -90,19 +92,29 @@ import { portfolioItems } from '../data/portfolio';
       color 0.15s ease;
   }
 
-  .hero-link:hover {
+  .work-link:hover {
     background: var(--blue);
     color: var(--cream);
   }
 
-  .hero-link.primary {
-    background: var(--blue);
-    color: var(--cream);
+  .hero-links {
+    display: flex;
+    justify-content: center;
   }
 
-  .hero-link.primary:hover {
-    background: var(--blue-dark);
-    border-color: var(--blue-dark);
+  .pricing-link {
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--cream);
+    -webkit-text-stroke: 2.5px var(--blue);
+    paint-order: stroke fill;
+    letter-spacing: 0.01em;
+    transition: -webkit-text-stroke-color 0.15s ease;
+  }
+
+  .pricing-link:hover {
+    -webkit-text-stroke-color: var(--blue-dark);
   }
 
   .services {
@@ -179,6 +191,11 @@ import { portfolioItems } from '../data/portfolio';
     .portfolio-head h2 {
       white-space: normal;
       font-size: 30px;
+      -webkit-text-stroke-width: 2px;
+    }
+
+    .pricing-link {
+      font-size: 26px;
       -webkit-text-stroke-width: 2px;
     }
   }
