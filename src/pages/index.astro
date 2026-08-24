@@ -16,7 +16,8 @@ import { portfolioItems } from '../data/portfolio';
     <div class="wrap hero-block gradient-mesh">
       <Hero />
       <div class="hero-links">
-        <a class="pricing-link" href="/pricing">See Pricing</a>
+        <a class="hero-link primary" href="#portfolio">View My Work</a>
+        <a class="hero-link secondary" href="/pricing">See Pricing</a>
       </div>
     </div>
 
@@ -74,22 +75,43 @@ import { portfolioItems } from '../data/portfolio';
 
   .hero-links {
     display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
-  .pricing-link {
-    font-family: var(--display);
-    font-size: 32px;
+  .hero-link {
+    padding: 15px 28px;
+    border-radius: 999px;
+    text-align: center;
+    font-size: 16px;
     font-weight: 800;
-    color: var(--cream);
-    -webkit-text-stroke: 2.5px var(--blue);
-    paint-order: stroke fill;
-    letter-spacing: 0.01em;
-    transition: -webkit-text-stroke-color 0.15s ease;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
   }
 
-  .pricing-link:hover {
-    -webkit-text-stroke-color: var(--blue-dark);
+  .hero-link.primary {
+    border: 2px solid var(--blue);
+    background: var(--blue);
+    color: var(--cream);
+  }
+
+  .hero-link.primary:hover {
+    background: var(--blue-dark);
+    border-color: var(--blue-dark);
+  }
+
+  .hero-link.secondary {
+    border: 2px solid var(--peach);
+    background: transparent;
+    color: var(--peach-muted);
+  }
+
+  .hero-link.secondary:hover {
+    background: var(--peach);
+    color: var(--peach-ink);
   }
 
   .services {
@@ -166,11 +188,6 @@ import { portfolioItems } from '../data/portfolio';
     .portfolio-head h2 {
       white-space: normal;
       font-size: 30px;
-      -webkit-text-stroke-width: 2px;
-    }
-
-    .pricing-link {
-      font-size: 26px;
       -webkit-text-stroke-width: 2px;
     }
   }

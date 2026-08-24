@@ -1,6 +1,6 @@
 export type AboutFact = {
   text: string;
-  icon?: 'camera' | 'heart' | 'controller' | 'drink';
+  icon?: 'camera' | 'heart' | 'cancer' | 'drink';
 };
 
 export const about = {
@@ -14,7 +14,7 @@ export const about = {
     { text: 'Social media manager + content creator' },
     { text: 'Big on local brands', icon: 'heart' },
     { text: 'OC based, working with small businesses' },
-    { text: 'Gamer girl at heart', icon: 'controller' },
+    { text: 'Cancer girly', icon: 'cancer' },
   ] satisfies AboutFact[],
   closing: "Okay, enough about me — let's talk about your socials.",
 };

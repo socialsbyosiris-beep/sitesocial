@@ -51,14 +51,7 @@ import type { AboutFact } from '../data/about';
                 <path d="M12 21s-7.5-4.6-10-9.1C0.5 8.7 2 5 5.5 5c2 0 3.3 1.1 4 2.2 0.7-1.1 2-2.2 4-2.2 3.5 0 5 3.7 3.5 6.9-2.5 4.5-10 9.1-10 9.1z" />
               </svg>
             )}
-            {fact.icon === 'controller' && (
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 8h12a4 4 0 014 4c0 3-1.5 6-3.5 6-1.2 0-1.8-1-2.7-2H9.2c-0.9 1-1.5 2-2.7 2C4.5 18 3 15 3 12a4 4 0 013-4z" />
-                <path d="M8 11.5v3M6.5 13h3" />
-                <circle cx="16" cy="10.5" r="0.9" fill="currentColor" stroke="none" />
-                <circle cx="18.2" cy="12.7" r="0.9" fill="currentColor" stroke="none" />
-              </svg>
-            )}
+            {fact.icon === 'cancer' && <span class="icon-glyph">♋</span>}
             <span>{fact.text}</span>
           </li>
         ))
@@ -147,6 +140,18 @@ import type { AboutFact } from '../data/about';
     flex-shrink: 0;
     width: 20px;
     height: 20px;
+    color: var(--blue);
+  }
+
+  .icon-glyph {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 1;
     color: var(--blue);
   }
 
