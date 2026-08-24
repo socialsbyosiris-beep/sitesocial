@@ -98,31 +98,22 @@ const { study } = Astro.props;
     <div class="results">
       <h3>The Results</h3>
       <div class="results-block">
-        {study.results.bullets.length > 0 && (
-          <ul class="result-bullets">
-            {study.results.bullets.map((bullet) => <li>{bullet}</li>)}
-          </ul>
-        )}
-        <div class="insights-card">
-          <div class="insights-head">
-            <span>Previous Month</span>
-            <span class="chevron">⌄</span>
-          </div>
-          <p class="insights-headline">{study.results.headline}</p>
-          <div class="insights-stats">
-            {
-              study.results.stats.map((stat) => (
-                <div class="insight-stat">
-                  <span class="insight-label">{stat.label}</span>
-                  <span class="insight-value">
-                    {stat.value}
-                    <span class="insight-delta">{stat.delta}</span>
-                  </span>
+        <h4 class="results-title">{study.results.title}</h4>
+        <p class="results-copy">{study.results.description}</p>
+        <div class="stat-list">
+          {
+            study.results.stats.map((stat) => (
+              <div class="stat">
+                <span class="stat-value">{stat.value}</span>
+                <div class="stat-text">
+                  <span class="stat-label">{stat.label}</span>
+                  {stat.sub && <span class="stat-sub">{stat.sub}</span>}
                 </div>
-              ))
-            }
-          </div>
+              </div>
+            ))
+          }
         </div>
+        <p class="results-note">{study.results.note}</p>
       </div>
     </div>
   </div>
@@ -418,85 +409,71 @@ const { study } = Astro.props;
     padding: 28px;
   }
 
-  .result-bullets {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .result-bullets li {
-    font-size: 14.5px;
-    font-weight: 700;
-    line-height: 1.5;
-    color: var(--on-blue);
-    padding-left: 18px;
-    position: relative;
-  }
-
-  .result-bullets li::before {
-    content: '✦';
-    position: absolute;
-    left: 0;
-    color: var(--peach);
-  }
-
-  .insights-card {
-    background: var(--card);
-    border-radius: 18px;
-    padding: 20px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .insights-head {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--muted-lighter);
-  }
-
-  .insights-headline {
+  .results-title {
     margin: 0;
     font-family: var(--display);
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--sage-dark);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--cream);
   }
 
-  .insights-stats {
+  .results-copy {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--on-blue-soft);
+  }
+
+  .stat-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-top: 10px;
-    border-top: 2px dashed var(--dash);
+    gap: 18px;
+    padding-top: 4px;
   }
 
-  .insight-stat {
+  .stat {
     display: flex;
     align-items: baseline;
-    justify-content: space-between;
+    gap: 16px;
   }
 
-  .insight-label {
+  .stat-value {
+    flex-shrink: 0;
+    font-family: var(--display);
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--cream);
+    -webkit-text-stroke: 2px var(--peach);
+    paint-order: stroke fill;
+    white-space: nowrap;
+  }
+
+  .stat-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .stat-label {
     font-size: 13px;
-    font-weight: 700;
-    color: var(--ink-soft);
-  }
-
-  .insight-value {
-    font-size: 15px;
     font-weight: 800;
-    color: var(--ink);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--on-blue);
   }
 
-  .insight-delta {
-    margin-left: 6px;
+  .stat-sub {
+    font-size: 12.5px;
+    color: var(--on-blue-dim);
+  }
+
+  .results-note {
+    margin: 0;
+    padding-top: 14px;
+    border-top: 2px dashed rgba(255, 253, 251, 0.25);
     font-size: 12px;
-    font-weight: 800;
-    color: var(--sage-dark);
+    font-style: italic;
+    color: var(--on-blue-dim);
   }
 
   @media (max-width: 800px) {
@@ -521,6 +498,11 @@ const { study } = Astro.props;
     .goals .eyebrow {
       font-size: 30px;
       -webkit-text-stroke-width: 2px;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      -webkit-text-stroke-width: 1.5px;
     }
   }
 </style>

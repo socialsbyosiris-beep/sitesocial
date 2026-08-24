@@ -15,10 +15,10 @@ export type Task = {
   palette?: string[];
 };
 
-export type InsightStat = {
-  label: string;
+export type ResultStat = {
   value: string;
-  delta: string;
+  label: string;
+  sub?: string;
 };
 
 export type CaseStudy = {
@@ -31,9 +31,10 @@ export type CaseStudy = {
   tools: { name: string; blurb: string }[];
   tasks: Task[];
   results: {
-    bullets: string[];
-    headline: string;
-    stats: InsightStat[];
+    title: string;
+    description: string;
+    stats: ResultStat[];
+    note: string;
   };
   photos: Photo[];
 };
@@ -86,13 +87,15 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: {
-      bullets: [],
-      headline: '+561% more accounts reached',
+      title: '5 Years Together',
+      description:
+        'From everyday coffee runs to seasonal launches, community events, and everything in between.',
       stats: [
-        { label: 'Accounts Reached', value: '3,920', delta: '+561%' },
-        { label: 'Accounts Engaged', value: '153', delta: '+1,290%' },
-        { label: 'Total Followers', value: '1,076', delta: '+64' },
+        { value: '2K+', label: 'Instagram community built' },
+        { value: '160K+', label: 'Views', sub: 'Across a recent 90-day period' },
+        { value: '3.6K+', label: 'Engaged accounts', sub: 'In that same recent period' },
       ],
+      note: 'Recent performance shown from available reporting data.',
     },
     photos: [
       { src: '/portfolio/yls-donuts.jpg', alt: 'Assorted gourmet donuts at YLS Bakery & Cafe' },
