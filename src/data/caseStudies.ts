@@ -1,5 +1,7 @@
 export type Tone = 'blue' | 'peach' | 'sand' | 'sage' | 'rose';
 
+export type Photo = { src: string; alt: string } | { tone: Tone };
+
 export type TaskColumn = {
   label: string;
   text: string;
@@ -33,7 +35,7 @@ export type CaseStudy = {
     headline: string;
     stats: InsightStat[];
   };
-  photoTones: Tone[];
+  photos: Photo[];
 };
 
 // Placeholder client case studies — swap brand, handle, photo grid, goals,
@@ -92,6 +94,16 @@ export const caseStudies: CaseStudy[] = [
         { label: 'Total Followers', value: '1,076', delta: '+64' },
       ],
     },
-    photoTones: ['blue', 'peach', 'sand', 'sage', 'rose', 'blue', 'peach', 'sand', 'sage'],
+    photos: [
+      { src: '/portfolio/yls-donuts.jpg', alt: 'Assorted gourmet donuts at YLS Bakery & Cafe' },
+      { src: '/portfolio/yls-drinks.jpg', alt: 'Iced coffee and matcha drinks at YLS Bakery & Cafe' },
+      { src: '/portfolio/yls-lox.jpg', alt: 'Lox bagel with capers at YLS Bakery & Cafe' },
+      { tone: 'sage' },
+      { tone: 'rose' },
+      { tone: 'blue' },
+      { tone: 'peach' },
+      { tone: 'sand' },
+      { tone: 'sage' },
+    ],
   },
 ];

@@ -11,7 +11,15 @@ const { study } = Astro.props;
 <article class="case">
   <div class="top">
     <div class="photo-grid">
-      {study.photoTones.map((tone) => <span class={`photo tone-${tone}`} />)}
+      {
+        study.photos.map((photo) =>
+          'src' in photo ? (
+            <img class="photo" src={photo.src} alt={photo.alt} loading="lazy" />
+          ) : (
+            <span class={`photo tone-${photo.tone}`} />
+          )
+        )
+      }
     </div>
     <div class="goals">
       <span class="eyebrow">The Goals</span>
@@ -139,8 +147,12 @@ const { study } = Astro.props;
   }
 
   .photo {
+    display: block;
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1;
     border-radius: 12px;
+    object-fit: cover;
   }
 
   .goals {
