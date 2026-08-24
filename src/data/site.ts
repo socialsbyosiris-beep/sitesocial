@@ -17,7 +17,7 @@ export type NavLink = {
 
 export const nav: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'View My Work', href: '/#portfolio' },
   { label: 'Pricing', href: '/pricing' },
 ];
 
