@@ -1,68 +1,50 @@
 export type PortfolioItem = {
-  title: string;
   category: string;
-  description: string;
-  tone: 'blue' | 'peach' | 'sand' | 'sage' | 'rose';
-  icon: 'camera' | 'play' | 'calendar' | 'chat' | 'mail' | 'star' | 'heart' | 'chart' | 'megaphone';
+  image: string;
+  alt: string;
 };
 
-// Placeholder projects — swap title, category, and description for real work,
-// and add photos once available. `tone` and `icon` style the placeholder tile.
+// "Beyond the Feed" tiles — swap category, image, and alt for real work
+// as it's ready.
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project Name',
     category: 'Brand Photography',
-    description: 'Add a short summary of the shoot, the brand, and the results here.',
-    tone: 'blue',
-    icon: 'camera',
+    image: '/portfolio/beyond-photography.jpg',
+    alt: 'Overhead shot of decorated Halloween donuts at YLS Bakery & Cafe',
   },
   {
-    title: 'Project Name',
     category: 'Reels & TikTok',
-    description: 'Describe the content series, platform, and any standout metrics.',
-    tone: 'peach',
-    icon: 'play',
+    image: '/portfolio/beyond-reels.jpg',
+    alt: 'Editing a breakfast bagel Reel in CapCut',
   },
   {
-    title: 'Project Name',
     category: 'Content Calendar',
-    description: 'Summarize the monthly cadence and engagement growth for this client.',
-    tone: 'sage',
-    icon: 'calendar',
+    image: '/portfolio/beyond-content-calendar.jpg',
+    alt: 'Monthly content calendar spreadsheet for YLS Bakery & Cafe',
   },
   {
-    title: 'Project Name',
     category: 'Community Management',
-    description: 'Highlight the tone, response time, or community wins on this account.',
-    tone: 'rose',
-    icon: 'chat',
+    image: '/portfolio/beyond-community.jpg',
+    alt: 'Instagram comment replies on a YLS Bakery & Cafe post',
   },
   {
-    title: 'Project Name',
     category: 'Email Campaign',
-    description: 'Note the campaign goal, open rate, or launch this newsletter supported.',
-    tone: 'sand',
-    icon: 'mail',
+    image: '/portfolio/beyond-email.jpg',
+    alt: 'YLS Bakery & Cafe seasonal email newsletter design',
   },
   {
-    title: 'Project Name',
     category: 'Influencer Outreach',
-    description: 'Explain the collaboration, reach, and outcome for this partnership.',
-    tone: 'blue',
-    icon: 'star',
+    image: '/portfolio/beyond-collabs.jpg',
+    alt: 'Influencer collaboration post featuring YLS Bakery & Cafe',
   },
   {
-    title: 'Project Name',
     category: 'Paid Ads',
-    description: 'Summarize the ad campaign, targeting, and results for this client.',
-    tone: 'peach',
-    icon: 'megaphone',
+    image: '/portfolio/beyond-ads.jpg',
+    alt: 'Yelp Ads performance dashboard for YLS Bakery & Cafe',
   },
   {
-    title: 'Project Name',
     category: 'Analytics & Growth',
-    description: 'Summarize a growth milestone or performance report delivered for this client.',
-    tone: 'sand',
-    icon: 'chart',
+    image: '/portfolio/beyond-analytics.jpg',
+    alt: 'Metricool analytics dashboard showing account growth',
   },
 ];
