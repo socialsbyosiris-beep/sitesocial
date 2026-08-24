@@ -14,7 +14,13 @@ const { study } = Astro.props;
       {
         study.photos.map((photo) =>
           'src' in photo ? (
-            <img class="photo" src={photo.src} alt={photo.alt} loading="lazy" />
+            <img
+              class="photo"
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              style={photo.position ? `object-position: ${photo.position}` : undefined}
+            />
           ) : (
             <span class={`photo tone-${photo.tone}`} />
           )

@@ -1,6 +1,6 @@
 export type Tone = 'blue' | 'peach' | 'sand' | 'sage' | 'rose';
 
-export type Photo = { src: string; alt: string } | { tone: Tone };
+export type Photo = { src: string; alt: string; position?: string } | { tone: Tone };
 
 export type TaskColumn = {
   label: string;
@@ -100,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
       { src: '/portfolio/yls-lox.jpg', alt: 'Lox bagel with capers at YLS Bakery & Cafe' },
       { src: '/portfolio/yls-tote.jpg', alt: "YLS Bakery & Cafe 10 year anniversary tote bag" },
       { src: '/portfolio/yls-pink-donut.jpg', alt: 'Pink sprinkle donut at YLS Bakery & Cafe' },
-      { src: '/portfolio/yls-dubai-dream.jpg', alt: 'Dubai chocolate pistachio pastry, cut open, at YLS Bakery & Cafe' },
+      { src: '/portfolio/yls-dubai-dream.jpg', alt: 'Dubai chocolate pistachio pastry, cut open, at YLS Bakery & Cafe', position: 'center 30%' },
       { src: '/portfolio/yls-quesadilla.jpg', alt: 'Breakfast quesadilla with avocado at YLS Bakery & Cafe' },
       { src: '/portfolio/yls-pastry.jpg', alt: 'Branded pastry bag and donut at YLS Bakery & Cafe' },
       { src: '/portfolio/yls-pins.jpg', alt: 'YLS Bakery & Cafe branded enamel pins' },
