@@ -24,6 +24,16 @@ import { portfolioItems } from '../data/portfolio';
       {services.map((service) => <ServiceTile service={service} />)}
     </section>
 
+    <section class="wrap about">
+      <img
+        class="about-img"
+        src="/about/about-osiris.webp"
+        alt="About Osiris — social media manager and content creator with 5+ years in social media, strategy, shooting and editing, powered by iced lattes. OC based, working with small businesses. Cancer baby."
+        width="1600"
+        height="878"
+      />
+    </section>
+
     <section id="portfolio" class="wrap portfolio">
       <div class="portfolio-head">
         <span class="eyebrow">Portfolio</span>
@@ -115,6 +125,12 @@ import { portfolioItems } from '../data/portfolio';
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 20px;
+  }
+
+  .about-img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .portfolio {
