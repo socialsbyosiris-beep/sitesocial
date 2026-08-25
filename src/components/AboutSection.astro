@@ -1,28 +1,336 @@
 ---
 import { about } from '../data/about';
+import type { Callout } from '../data/about';
+
+const left = about.callouts.filter((c: Callout) => c.side === 'left');
+const right = about.callouts.filter((c: Callout) => c.side === 'right');
 ---
 
 <section class="about wrap">
-  <a href="#portfolio" class="about-link" aria-label="See my work below">
-    <img src={about.image} alt={about.alt} class="about-image" />
+  <span class="line outline-title">About</span>
+
+  <div class="row">
+    <ul class="callouts left">
+      {
+        left.map((c: Callout) => (
+          <li>
+            <div class="callout-text">
+              {c.icon === 'stars' && (
+                <span class="icon stars">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                    <path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z" />
+                  </svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" class="star-sm">
+                    <path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z" />
+                  </svg>
+                </span>
+              )}
+              <span>{c.text}</span>
+              <span class="arrow point-right">
+                <svg viewBox="0 0 60 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8c15 2 25 8 42 14" />
+                  <path d="M35 18l9 4-3-9" />
+                </svg>
+              </span>
+            </div>
+            {c.icon === 'camera' && (
+              <svg class="doodle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="3" />
+                <path d="M8 7l1.6-3h4.8L16 7" />
+                <circle cx="12" cy="14" r="4" />
+              </svg>
+            )}
+            {c.icon === 'drink' && (
+              <svg class="doodle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 9h10l-1 11.2a2 2 0 01-2 1.8h-4a2 2 0 01-2-1.8L7 9z" />
+                <path d="M6 9h12" />
+                <path d="M14.5 5l1 4" />
+              </svg>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="photo-wrap">
+      <div class="blob" />
+      <img class="photo" src={about.photo} alt={about.photoAlt} />
+      <span class="line name outline-title">Osiris</span>
+    </div>
+
+    <ul class="callouts right">
+      {
+        right.map((c: Callout) => (
+          <li>
+            <div class="callout-text">
+              <span class="arrow point-left">
+                <svg viewBox="0 0 60 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8c15 2 25 8 42 14" />
+                  <path d="M35 18l9 4-3-9" />
+                </svg>
+              </span>
+              <span>{c.text}</span>
+              {c.icon === 'heart' && (
+                <svg class="icon-inline" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                  <path d="M12 21s-7.5-4.6-10-9.1C0.5 8.7 2 5 5.5 5c2 0 3.3 1.1 4 2.2 0.7-1.1 2-2.2 4-2.2 3.5 0 5 3.7 3.5 6.9-2.5 4.5-10 9.1-10 9.1z" />
+                </svg>
+              )}
+              {c.icon === 'cancer' && (
+                <>
+                  <svg class="icon-inline sparkle" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path d="M12 2l1.5 7.5L21 11l-7.5 1.5L12 20l-1.5-7.5L3 11l7.5-1.5z" />
+                  </svg>
+                  <span class="icon-glyph">♋</span>
+                </>
+              )}
+            </div>
+            {c.underline && (
+              <svg class="doodle underline" viewBox="0 0 90 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <path d="M2 6c15-6 30-6 45 0s30 6 41 0" />
+              </svg>
+            )}
+            {c.icon === 'wave' && (
+              <svg class="doodle wave" viewBox="0 0 60 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <path d="M2 8c5-6 10-6 15 0s10 6 15 0 10-6 15 0 10 6 13 0" />
+              </svg>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <p class="closing">{about.closing}</p>
+
+  <a class="scroll-cue" href="#portfolio" aria-label="See my work below">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4v16M6 14l6 6 6-6" />
+    </svg>
   </a>
 </section>
 
 <style>
   .about {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .line {
+    text-align: center;
+    letter-spacing: 0.02em;
+    font-size: 68px;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--blue);
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 960px;
+    margin: 4px 0 0;
+  }
+
+  .callouts {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .callouts.left {
+    align-items: flex-end;
+  }
+
+  .callouts.right {
+    align-items: flex-start;
+  }
+
+  .callout-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink-soft);
+  }
+
+  .callouts.right li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .callouts.left li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .icon {
+    display: inline-flex;
+    gap: 2px;
+    color: var(--peach-muted);
+  }
+
+  .icon svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .icon .star-sm {
+    width: 9px;
+    height: 9px;
+    align-self: flex-end;
+  }
+
+  .icon-inline {
+    width: 16px;
+    height: 16px;
+    color: var(--rose-dark);
+    flex-shrink: 0;
+  }
+
+  .icon-inline.sparkle {
+    width: 13px;
+    height: 13px;
+    color: var(--sage-dark);
+  }
+
+  .icon-glyph {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--blue);
+  }
+
+  .arrow {
+    width: 26px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--sage-dark);
+  }
+
+  .arrow.point-left {
+    transform: scaleX(-1);
+  }
+
+  .doodle {
+    width: 22px;
+    height: 22px;
+    color: var(--blue);
+  }
+
+  .doodle.underline,
+  .doodle.wave {
+    width: 60px;
+    height: 10px;
+    color: var(--sage-dark);
+  }
+
+  .photo-wrap {
+    position: relative;
+    width: 300px;
+    display: flex;
     justify-content: center;
   }
 
-  .about-link {
-    display: block;
+  .blob {
+    position: absolute;
+    inset: 4% 6%;
+    background: var(--sand);
+    border-radius: 46% 54% 58% 42% / 48% 42% 58% 52%;
+    transform: scale(1.06) rotate(-3deg);
+    z-index: -1;
   }
 
-  .about-image {
-    display: block;
+  .photo {
     width: 100%;
-    max-width: 460px;
     height: auto;
-    border-radius: 24px;
+    display: block;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+
+  .name {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 52px;
+    -webkit-text-stroke-color: var(--peach);
+    white-space: nowrap;
+  }
+
+  .closing {
+    margin: 26px 0 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .scroll-cue {
+    display: flex;
+    margin-top: 10px;
+    color: var(--tint);
+  }
+
+  .scroll-cue:hover {
+    color: var(--blue);
+  }
+
+  .scroll-cue svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 780px) {
+    .line {
+      font-size: 46px;
+      -webkit-text-stroke-width: 2.5px;
+    }
+
+    .row {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 28px;
+    }
+
+    .photo-wrap {
+      order: -1;
+      width: 220px;
+      margin-bottom: 16px;
+    }
+
+    .name {
+      font-size: 38px;
+      bottom: -4px;
+    }
+
+    .callouts.left,
+    .callouts.right {
+      align-items: center;
+    }
+
+    .callouts.left li,
+    .callouts.right li {
+      align-items: center;
+    }
+
+    .callout-text {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .callouts.left .arrow,
+    .callouts.right .arrow {
+      display: none;
+    }
   }
 </style>
